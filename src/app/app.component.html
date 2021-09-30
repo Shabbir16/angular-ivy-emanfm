@@ -1,4 +1,66 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h1>Search</h1>
+<form [formGroup]="searchForm" (ngSubmit)="submit()">
+  <br />
+  <label for="last-name">Male: </label>
+  <input
+    id="last-name"
+    type="checkbox"
+    value="Male"
+    formControlName="gender_male"
+  />
+  <br />
+  <label for="last-name">Female: </label>
+  <input
+    id="last-name"
+    type="checkbox"
+    value="Female"
+    formControlName="gender_female"
+  /><br />
+  <label for="first-name">What are you looking for: </label>
+  <input id="first-name" type="text" formControlName="text" />
+  <br />
+</form>
+<br />
+<div>
+  <table>
+    <th>#</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <tr *ngFor="let obj of userData">
+      <td>{{ obj.id }}</td>
+      <td>{{ obj.first_name }}</td>
+      <td>{{ obj.last_name }}</td>
+      <td>{{ obj.email }}</td>
+      <td>{{ obj.gender }}</td>
+    </tr>
+  </table>
+  <br />
+  <h1>Add new Candidate</h1>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName" />
+    <br />
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName" />
+    <br />
+    <label for="last-name">Email: </label>
+    <input id="last-name" type="email" formControlName="email" />
+    <br />
+    <label for="last-name">Male: </label>
+    <input id="last-name" type="radio" value="Male" formControlName="gender" />
+    <br />
+    <label for="last-name">Female: </label>
+    <input
+      id="last-name"
+      type="radio"
+      value="Female"
+      formControlName="gender"
+    />
+
+    <br />
+    <button type="Submit" label="Add">Submit</button>
+  </form>
+</div>
